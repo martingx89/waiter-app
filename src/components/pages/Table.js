@@ -53,10 +53,10 @@ const Table = () => {
       <h1 className='my-4'>Table {table.id}</h1>
       <Form onSubmit={handleSubmit}>
         <Form.Group as={Row} className='my-3'>
-          <Form.Label column sm={1}>
+          <Form.Label column sm={2} lg={1}>
             <strong>Status:</strong>
           </Form.Label>
-          <Col sm={4}>
+          <Col sm={5} lg={4}>
             <Form.Select value={status} onChange={(e) => setStatus(e.target.value)}>
               <option>Busy</option>
               <option>Reserved</option>
@@ -66,10 +66,10 @@ const Table = () => {
           </Col>
         </Form.Group>
         <Form.Group as={Row} className='my-3'>
-          <Form.Label column sm={1}>
+          <Form.Label column sm={2} lg={1}>
             <strong>People:</strong>
           </Form.Label>
-          <Col sm={1}>
+          <Col sm={2} lg={1}>
             <Form.Control
               type='number'
               min='0'
@@ -79,7 +79,7 @@ const Table = () => {
             />
           </Col>
           /
-          <Col sm={1}>
+          <Col sm={2} lg={1}>
             <Form.Control
               type='number'
               min='0'
@@ -91,13 +91,13 @@ const Table = () => {
         </Form.Group>
         <Form.Group as={Row} className={status !== 'Busy' ? 'd-none' : 'my-3'}>
           <Stack direction='horizontal'>
-            <Form.Label column sm={1}>
+            <Form.Label column sm={2} lg={1}>
               <strong>Bill:</strong>
             </Form.Label>
             <Form.Text>
               <p className='m-1'>$ </p>
             </Form.Text>
-            <Col sm={1}>
+            <Col sm={2} lg={1}>
               <Form.Control type='number' value={bill} onChange={(e) => setBill(e.target.value)} />
             </Col>
           </Stack>
