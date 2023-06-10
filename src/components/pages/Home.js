@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
   const tables = useSelector(getAllTables);
-  console.log(tables);
   return (
     <div>
       <h1 className='my-4'>All tables</h1>
