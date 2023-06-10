@@ -1,7 +1,6 @@
+import { Button, ListGroup, Stack } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { getAllTables } from '../../redux/tableRedux';
-import { Button, Stack } from 'react-bootstrap';
-import ListGroup from 'react-bootstrap/ListGroup';
 
 const Home = () => {
   const tables = useSelector(getAllTables);
