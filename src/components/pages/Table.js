@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import { useSelector } from 'react-redux';
 import { Form, Row, Col, Stack, Button } from 'react-bootstrap';
 import { getTableById, updateTable } from '../../redux/tableRedux';
@@ -17,6 +17,7 @@ const Table = () => {
   const [bill, setBill] = useState(Number(table.bill));
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (status === 'Cleaning' || status === 'Free') {
@@ -44,6 +45,7 @@ const Table = () => {
     };
     dispatch(updateTable(payload));
     console.log(payload);
+    navigate('/');
   };
 
   return (
