@@ -1,10 +1,10 @@
 import { Button, ListGroup, Stack } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { getAllTables } from '../../redux/tableRedux';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const tables = useSelector(getAllTables);
-  console.log(tables);
   return (
     <div>
       <h1 className='my-4'>All tables</h1>
@@ -17,9 +17,9 @@ const Home = () => {
                 <strong>Status: </strong>
                 {table.status}
               </p>
-              <Button variant='primary' className='ms-auto'>
-                Show more
-              </Button>
+              <Link className='ms-auto' to={`/table/${table.id}`}>
+                <Button variant='primary'>Show more</Button>
+              </Link>
             </Stack>
           </ListGroup.Item>
         ))}
