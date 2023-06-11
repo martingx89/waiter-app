@@ -7,9 +7,7 @@ import Loading from '../features/Spinner';
 const Home = () => {
   const tables = useSelector(getAllTables);
 
-  console.log(tables);
-
-  if (!tables) {
+  if (tables.length === 0) {
     return <Loading></Loading>;
   }
   return (
