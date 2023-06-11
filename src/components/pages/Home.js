@@ -6,9 +6,14 @@ import Loading from '../features/Spinner';
 
 const Home = () => {
   const tables = useSelector(getAllTables);
+
+  console.log(tables);
+
+  if (!tables) {
+    return <Loading></Loading>;
+  }
   return (
     <div>
-      <Loading></Loading>
       <h1 className='my-4'>All tables</h1>
       <ListGroup variant='flush'>
         {tables.map((table) => (

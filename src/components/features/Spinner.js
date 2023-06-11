@@ -1,9 +1,9 @@
 import Spinner from 'react-bootstrap/Spinner';
 
-const Loading = () => {
+const Loading = (props) => {
   return (
-    <Spinner animation='border' role='status' variant='primary'>
-      <span className='visually-hidden'>Spinner...</span>
+    <Spinner animation='border' role='status' variant='primary' className='text-center my-4'>
+      <span className='visually-hidden'>{props.children}</span>
     </Spinner>
   );
 };
