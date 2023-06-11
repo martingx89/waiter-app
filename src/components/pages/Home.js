@@ -2,9 +2,14 @@ import { Button, ListGroup, Stack } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { getAllTables } from '../../redux/tableRedux';
 import { Link } from 'react-router-dom';
+import Loading from '../features/Spinner';
 
 const Home = () => {
   const tables = useSelector(getAllTables);
+
+  if (tables.length === 0) {
+    return <Loading></Loading>;
+  }
   return (
     <div>
       <h1 className='my-4'>All tables</h1>
