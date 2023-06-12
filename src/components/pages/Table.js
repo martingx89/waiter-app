@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router';
 import { useSelector } from 'react-redux';
 import { Form, Row, Col, Stack, Button } from 'react-bootstrap';
-import { getTableById, updateTable } from '../../redux/tableRedux';
+import { getTableById, sendData } from '../../redux/tableRedux';
 
 const Table = () => {
   const { id } = useParams();
@@ -43,7 +43,7 @@ const Table = () => {
       peopleAmount: peopleAmount.toString(),
       maxPeopleAmount: maxPeopleAmount.toString(),
     };
-    dispatch(updateTable(payload));
+    dispatch(sendData(payload));
     console.log(payload);
     navigate('/');
   };
