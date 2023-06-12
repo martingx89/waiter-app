@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router';
 import { useSelector } from 'react-redux';
 import { Form, Row, Col, Stack, Button } from 'react-bootstrap';
-import { getTableById, sendData } from '../../redux/tableRedux';
+import { getTableById, sendData } from '../../redux/tablesRedux';
 
 const Table = () => {
   const { id } = useParams();

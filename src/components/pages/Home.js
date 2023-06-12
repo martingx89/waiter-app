@@ -1,6 +1,6 @@
 import { Button, ListGroup, Stack } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
-import { getAllTables } from '../../redux/tableRedux';
+import { getAllTables } from '../../redux/tablesRedux';
 import { Link } from 'react-router-dom';
 import Loading from '../features/Spinner';
 

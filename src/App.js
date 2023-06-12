@@ -7,7 +7,7 @@ import Header from './components/views/Header';
 import Footer from './components/views/Footer';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { fetchTables } from './redux/tableRedux';
+import { fetchTables } from './redux/tablesRedux';
 
 const App = () => {
   const dispatch = useDispatch();
