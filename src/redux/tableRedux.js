@@ -19,6 +19,21 @@ export const fetchTables = () => {
   };
 };
 
+export const sendData = (data) => {
+  return (dispatch) => {
+    const options = {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    };
+    fetch(`http://localhost:3131/tables/${data.id}`, options)
+      .then((res) => res.json)
+      .then((data) => dispatch(updateTable(data)));
+  };
+};
+
 const tablesReducer = (statePart = [], action) => {
   switch (action.type) {
     case SHOW_TABLES:
