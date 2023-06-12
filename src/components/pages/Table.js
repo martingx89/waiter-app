@@ -9,8 +9,6 @@ const Table = () => {
   const { id } = useParams();
   const table = useSelector((state) => getTableById(state, id));
 
-  // console.log(table);
-
   const [status, setStatus] = useState(table.status);
   const [peopleAmount, setPeopleAmount] = useState(Number(table.peopleAmount));
   const [maxPeopleAmount, setMaxPeopleAmount] = useState(Number(table.maxPeopleAmount));
@@ -44,7 +42,6 @@ const Table = () => {
       maxPeopleAmount: maxPeopleAmount.toString(),
     };
     dispatch(sendData(payload));
-    console.log(payload);
     navigate('/');
   };
 
