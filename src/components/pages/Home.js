@@ -25,6 +25,7 @@ const Home = () => {
               <Link className='ms-auto' to={`/table/${table.id}`}>
                 <Button variant='primary'>Show more</Button>
               </Link>
+              <Button variant='danger'>Delete</Button>
             </Stack>
           </ListGroup.Item>
         ))}
