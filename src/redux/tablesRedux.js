@@ -8,6 +8,7 @@ export const getTableById = ({ tables }, tableId) => tables.find((table) => tabl
 const createActionName = (actionName) => `app/tables/${actionName}`;
 export const SHOW_TABLES = createActionName('SHOW_TABLES');
 export const UPDATE_TABLE = createActionName('UPDATE_TABLE');
+export const DELETE_TABLE = createActionName('DELETE_TABLE');
 
 // action creators
 export const showTables = (payload) => ({ type: SHOW_TABLES, payload });
@@ -42,6 +43,8 @@ const tablesReducer = (statePart = [], action) => {
       return [...action.payload];
     case UPDATE_TABLE:
       return statePart.map((table) => (table.id === action.payload.id ? { ...table, ...action.payload } : table));
+    case DELETE_TABLE:
+      return statePart.filter((table) => table.id !== action.payload);
     default:
       return statePart;
   }
