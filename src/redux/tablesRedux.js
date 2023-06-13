@@ -3,6 +3,7 @@ import { API_URL } from '../config';
 //selectors
 export const getAllTables = (state) => state.tables;
 export const getTableById = ({ tables }, tableId) => tables.find((table) => table.id === tableId);
+export const getAllTableIds = (state) => state.tables.map((table) => table.id);
 
 // actions
 const createActionName = (actionName) => `app/tables/${actionName}`;
@@ -57,18 +58,25 @@ export const removeRequest = (id) => {
   };
 };
 
-export const addRequest = (data) => {
+export const addRequest = (id) => {
   return (dispatch) => {
+    const newTable = {
+      id,
+      peopleAmount: 0,
+      bill: 0,
+      maxPeople: 0,
+      status: 'Free',
+    };
     const options = {
-      method: 'PUT',
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(newTable),
     };
-    fetch(`${API_URL}/tables/${data.id}`, options)
+    fetch(`${API_URL}/tables`, options)
       .then((res) => res.json())
-      .then((data) => dispatch(updateTable(data)));
+      .then((data) => dispatch(addTable(data)));
   };
 };
 
