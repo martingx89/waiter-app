@@ -1,14 +1,15 @@
 import { Button, ListGroup, Stack } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
-import { getAllTables } from '../../redux/tablesRedux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllTables, removeRequest } from '../../redux/tablesRedux';
 import { Link } from 'react-router-dom';
 import Loading from '../features/Spinner';
 
 const Home = () => {
   const tables = useSelector(getAllTables);
+  const dispatch = useDispatch();
 
-  const deleteAction = (e) => {
-    e.preventDefault();
+  const deleteAction = (id) => {
+    dispatch(removeRequest(id));
     console.log('test');
   };
 
@@ -30,7 +31,7 @@ const Home = () => {
               <Link className='ms-auto' to={`/table/${table.id}`}>
                 <Button variant='primary'>Show more</Button>
               </Link>
-              <Button variant='danger' onClick={deleteAction}>
+              <Button variant='danger' onClick={() => deleteAction(table.id)}>
                 Delete
               </Button>
             </Stack>

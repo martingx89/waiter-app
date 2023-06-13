@@ -13,6 +13,7 @@ export const DELETE_TABLE = createActionName('DELETE_TABLE');
 // action creators
 export const showTables = (payload) => ({ type: SHOW_TABLES, payload });
 export const updateTable = (payload) => ({ type: UPDATE_TABLE, payload });
+export const deleteTable = (payload) => ({ type: DELETE_TABLE, payload });
 
 export const fetchTables = () => {
   return (dispatch) => {
@@ -34,6 +35,23 @@ export const sendData = (data) => {
     fetch(`${API_URL}/tables/${data.id}`, options)
       .then((res) => res.json())
       .then((data) => dispatch(updateTable(data)));
+  };
+};
+
+export const removeRequest = (id) => {
+  return (dispatch) => {
+    const removedId = { id };
+
+    const options = {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(removedId),
+    };
+    fetch(`${API_URL}/tables/${id}`, options)
+      .then((res) => res.json())
+      .then((id) => dispatch(deleteTable(id)));
   };
 };
 
