@@ -7,6 +7,11 @@ import Loading from '../features/Spinner';
 const Home = () => {
   const tables = useSelector(getAllTables);
 
+  const deleteAction = (e) => {
+    e.preventDefault();
+    console.log('test');
+  };
+
   if (tables.length === 0) {
     return <Loading></Loading>;
   }
@@ -25,7 +30,9 @@ const Home = () => {
               <Link className='ms-auto' to={`/table/${table.id}`}>
                 <Button variant='primary'>Show more</Button>
               </Link>
-              <Button variant='danger'>Delete</Button>
+              <Button variant='danger' onClick={deleteAction}>
+                Delete
+              </Button>
             </Stack>
           </ListGroup.Item>
         ))}
