@@ -54,7 +54,7 @@ export const removeRequest = (id) => {
     };
     fetch(`${API_URL}/tables/${id}`, options)
       .then((res) => res.json())
-      .then((id) => dispatch(deleteTable(id)));
+      .then((data) => dispatch(deleteTable(data.id)));
   };
 };
 
