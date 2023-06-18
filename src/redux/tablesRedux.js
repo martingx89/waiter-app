@@ -76,7 +76,7 @@ export const addRequest = (id) => {
     };
     fetch(`${API_URL}/tables`, options)
       .then((res) => res.json())
-      .then((data) => dispatch(addTable(data)));
+      .then((data) => dispatch(addTable(data.id)));
   };
 };
 
