@@ -22,18 +22,11 @@
       "bill": 45
     },
     {
-      "id": "4",
-      "status": "Cleaning",
+      "id": "9",
       "peopleAmount": 0,
-      "maxPeopleAmount": 3,
-      "bill": 0
-    },
-    {
-      "id": "5",
-      "status": "Free",
-      "peopleAmount": 0,
-      "maxPeopleAmount": 5,
-      "bill": 0
+      "bill": 0,
+      "maxPeople": 0,
+      "status": "Free"
     }
   ]
 }
